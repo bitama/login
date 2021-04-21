@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container bg-primary text-warning mt-4">
+        {% for message in messages %}
+        <p>{{message}}</p>
+        {% endfor %}
+    </div>
+    <div class="container">
+        <div class="row mt-4 bg-white">
+            <div class="col bg-dark text-light">
+                <h1>Registration</h1>
+                <form action="/users/register" method="post">
+                    {% csrf_token %}
+                    <label for="first_name" class="form-label">First Name</label>
+                    <input type="text"class="form-control" name="first_name" id="first_name"><br>
+                    <label for="first_name" class="form-label">Last Name</label>
+                    <input type="text"class="form-control" name="last_name" id="first_name"><br>
+                    <label for="first_name" class="form-label">Email</label>
+                    <input type="text"class="form-control" name="email" id="email"><br>
+                    <label for="pasword" class="form-label">Password</label>
+                    <input type="password"class="form-control" name="password" id="pasword"><br>
+                    <label for="pasword" class="form-label">Confirm PW</label>
+                    <input type="password"class="form-control" name="confirm_password" id="confirm_password"><br>
+                    <input type="submit" value="Register" class="btn btn-primary mb-3">
+                </form>
+            </div>
+            <div class="col bg-info text-dark ">
+                <h1>Login</h1>
+                <form action="/user/login" method="post" class="text-light">
+                    {% csrf_token %}
+                    <label for="first_name" class="form-label">Email</label>
+                    <input type="text"class="form-control" name="email" id="email"><br>
+                    <label for="pasword" class="form-label">Password</label>
+                    <input type="password"class="form-control" name="password" id="pasword"><br>
+                    <input type="submit" value="Login" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
